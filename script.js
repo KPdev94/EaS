@@ -10,6 +10,8 @@ const createBoard = (size) => {
         gameSpace.classList.add('board-height');
         gameSpace.classList.add('gameSpace');   
     }
+    
+    const boardH = document.querySelectorAll('.board-height');
     boardH.forEach((col) => {
         for(let j = 0; j < size; j++) {
             const gameSpace = document.createElement('div');
@@ -18,11 +20,18 @@ const createBoard = (size) => {
             gameSpace.classList.add('gameSpace');   
         }
     })
+    
+    const gameSpace = document.querySelectorAll('gameSapce');
+    gameSpace.forEach((space) => {
+        space.addEventListener('hover', space.style.background = 'blue')
+    })
 }
 
 
-const btn = document.querySelector('#test');
+
+const btn = document.querySelector('#custom-size');
 btn.addEventListener('click', () => {
     size = prompt('How big to make the grid?');
     createBoard(size);
 })
+

@@ -1,3 +1,6 @@
+* {
+    box-sizing: content-box;
+}
 body {
     width: 100%;
     background-color: gray;
@@ -5,20 +8,31 @@ body {
     justify-content: center;
     align-items: center;
 }
+button {
+    width: 80px;
+}
+h3 {
+    text-align: center;
+    margin-bottom: 2px;
+}
+.container {
+    background-color: red;
+    border: 2px solid red;
+    border-radius: 50px;
+}
 
 #main-board {
-    width: 800px;
-    height: 800px;
+    width: 700px;
+    height: 700px;
+    margin: 30px;
     border: 1px solid blue;
     display: flex;
-    justify-content: space-evenly;
 }
 .board-height {
-    border: 2px solid yellow;
     display: flex;
-    justify-content: space-evenly;
-    width: fit-content;
+    flex-direction: column;
     flex: 1 1 auto;
+    margin: 0;
 }
 .board-width {
     flex: 1 1 auto;
@@ -31,19 +45,18 @@ body {
 }
 .size-btns {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
+    margin-bottom:  8px;
 }
 .color-btns {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
+    margin-bottom: 8px;
 }
 
 .gameSpace {
     background-color: white;
-    border: 2px solid orange;
-}
-.gameSpace:mouseOn {
-    background-color: red;
+    outline: 1px solid black;
 }
