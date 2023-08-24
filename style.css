@@ -2,7 +2,7 @@
     box-sizing: content-box;
 }
 body {
-    width: 100%;
+    height: 100vh;
     background-color: gray;
     display: flex;
     justify-content: center;
@@ -27,6 +27,7 @@ h3 {
     margin: 30px;
     border: 1px solid blue;
     display: flex;
+    flex: 1 1 auto;
 }
 .board-height {
     display: flex;
