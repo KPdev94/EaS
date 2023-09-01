@@ -7,25 +7,27 @@
         <title>Etch-a-Sketch</title>
     </head>
     <body>
+        <h1 id="gameName"><u>Etch-a-Sketch</u></h1>
+        <h3><b><u>Path Color</u></b></h3>
+        <div class="color-btns">
+            <button id="black" class="colorBtn">Black</button>
+            <button id="red" class="colorBtn">Red</button>
+            <button id="rainbow" class="colorBtn">Rainbow</button>
+        </div>
+        <h3><b><u>Grid Size</u></b></h3>
+        <div class="size-btns">
+            <button id="smallBoard" class="sizeBtn">16 x 16</button>
+            <button id="mediumBoard" class="sizeBtn">40 x 40</button>
+            <button id="custom-size" class="sizeBtn">Custom</button>
+        </div>
         <div class="container">
             <div id="main-board">
-
             </div>
-            <div class="button-container">
-                <h3><b><u>Grid Size</u></b></h3>
-                <div class="size-btns">
-                    <button id="smallBoard">16 x 16</button>
-                    <button id="mediumBoard">96 x 96</button>
-                    <button id="custom-size">Custom</button>
-                </div>
-                <h3><b><u>Path Color</u></b></h3>
-                <div class="color-btns">
-                    <button id="black">Black</button>
-                    <button id="red">Red</button>
-                    <button id="rainbow">Rainbow</button>
-                </div>
-            </div>
+            <button id="outlineBtn" class="">Toggle Outline</button>
+            <button id="clearBtn">Clear Board</button>
         </div>
+        </div>
+    <footer><h4>Copyright © 2023 <a href="github.com/kpdev94">KPdev94 <img src="./github-icon.png"> </a></i></h4></footer>
     </body>
     <script src="script.js" defer></script>
 </html>
