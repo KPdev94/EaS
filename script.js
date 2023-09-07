@@ -5,6 +5,22 @@ const selectedSize = document.querySelectorAll('.selectedSize');
 const selectedColor = document.querySelectorAll('.selectedColor');
 
 let size;
+let colorMode;
+let outlined = false;
+
+const outlineBoard = () => {
+    const gameSpace = document.querySelectorAll('.gameSpace');
+    if (outlined == true) {
+        gameSpace.forEach(space => {
+            space.classList.add("outlined");
+        })
+    }
+    else {
+        gameSpace.forEach(space => {
+            space.classList.remove("outlined");
+        })
+    }
+}
 
 const sizeModeSelection = (sizeMode) => {
     const sizeBtns = document.querySelectorAll('.sizeBtn');
@@ -14,7 +30,6 @@ const sizeModeSelection = (sizeMode) => {
                 btn.classList.remove('selectedSize');
             });
             e.target.classList.add('selectedSize');
-            colorMode = e.target.id;
         });
     });
     if(sizeMode == 'default') {
@@ -22,7 +37,7 @@ const sizeModeSelection = (sizeMode) => {
     }
 }
 
-const colorModeSelection = (colorMode) => {
+const colorModeSelection = (color) => {
     const colorBtns = document.querySelectorAll('.colorBtn');
     colorBtns.forEach((button) => {
         button.addEventListener('click', (e) => {
@@ -33,9 +48,10 @@ const colorModeSelection = (colorMode) => {
             colorMode = e.target.id;
         });
     });
-    if(colorMode == 'default') {
+    if(colorMode == null) {
         document.getElementById('black').classList.add('selectedColor');
     }
+    console.log(colorMode);
 }
 
 
@@ -57,7 +73,9 @@ const createBoard = (size) => {
             gameSpace.classList.add('gameSpace');   
         }
     })
-    colorSelector();
+    colorSelector(colorMode);
+    colorModeSelection(colorMode);
+    outlineBoard(outlined);
 }
 
 const colorSelector = (fillColor) => {
@@ -103,12 +121,16 @@ const smallBtn = document.querySelector('#smallBoard');
 smallBtn.addEventListener('click', () => { 
     createBoard(16);
     size = 16;
+    colorSelector(colorMode);
+    colorModeSelection(colorMode);
 });
 
 const mediumBtn = document.querySelector('#mediumBoard');
 mediumBtn.addEventListener('click', () => { 
     createBoard(40);
     size = 40;
+    colorSelector(colorMode);
+    colorModeSelection(colorMode);
 });
 
 const btn = document.querySelector('#custom-size');
@@ -138,11 +160,16 @@ btn.addEventListener('click', () => {
 
 const outlineBtn = document.querySelector('#outlineBtn');
 outlineBtn.addEventListener('click', () => {
-    const gameSpace = document.querySelectorAll('.gameSpace');
-    gameSpace.forEach(space => {
-        space.classList.toggle("outlined");
-    })
+    if(outlined == false) {
+        outlined = true;
+    }
+    else {
+        outlined = false;
+    }
+    console.log("should be outlined");
+    outlineBoard(outlined);
 });
+
 
 const clearBtn = document.querySelector('#clearBtn');
 clearBtn.addEventListener('click', () => createBoard(size));
