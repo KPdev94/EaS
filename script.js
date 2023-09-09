@@ -65,14 +65,19 @@ const createBoard = (size) => {
     }
     
     const boardH = document.querySelectorAll('.board-height');
-    boardH.forEach((col) => {
+    boardH.forEach((column) => {
         for (let j = 0; j < size; j++) {
             const gameSpace = document.createElement('div');
-            col.appendChild(gameSpace);
+            column.appendChild(gameSpace);
             gameSpace.classList.add('board-width');
-            gameSpace.classList.add('gameSpace');   
+            gameSpace.classList.add('gameSpace');  
         }
-    })
+        const boardSpace = document.querySelectorAll('.board-width');
+        boardSpace.forEach((space) => {
+            space.style.height = space.style.width; 
+        });
+    });
+
     colorSelector(colorMode);
     colorModeSelection(colorMode);
     outlineBoard(outlined);
